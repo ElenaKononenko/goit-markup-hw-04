@@ -22,6 +22,7 @@ html {
   --primary-white-color: #ffffff;
   --secondary-bg-color: #f5f4fa;
   --footer-link-color: rgba(255, 255, 255, 0.6);
+  --footer-link-bg-color: rgba(255, 255, 255, 0.1);
 }
 
 /* Остальной код */
@@ -61,13 +62,25 @@ body {
 }
 
 .button.sub {
+  display: flex;
   padding-top: 10px;
   padding-right: 28px;
   padding-bottom: 10px;
   padding-left: 28px;
   margin-left: 12px;
 }
+.button.sub::after {
+  content: "";
+  width: 24px;
+  height: 24px;
+  background-image: url(../img/send.svg);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
+  align-self: baseline;
 
+  margin-left: 10px;
+}
 .container {
   width: 1200px;
   padding-left: 15px;
@@ -182,8 +195,7 @@ body {
 
 .add-header .link {
   display: block;
-  /* padding-top: 32px;
-  padding-bottom: 32px; */
+
   color: var(--primary-text-color);
 
   font-weight: 500;
@@ -196,6 +208,25 @@ body {
 .add-header .link:focus {
   color: var(--accent-color);
 }
+.add-header .link::before {
+  display: inline-block;
+  content: "";
+  background-position: center;
+  background-repeat: no-repeat;
+
+  margin-right: 10px;
+}
+.icon-mail::before {
+  background-image: url(../img/envelope.svg);
+
+  height: 11px;
+  width: 16px;
+}
+.icon-tel::before {
+  background-image: url(../img/phone.svg);
+  height: 14px;
+  width: 10px;
+}
 /*footer*/
 /* * {
   outline: 2px solid yellowgreen;
@@ -205,20 +236,7 @@ body {
   padding-top: 60px;
   padding-bottom: 60px;
 }
-.footer-link {
-  display: flex;
-}
 
-/* удалить потом */
-.footer-link .link {
-  display: block;
-  width: 44px;
-  height: 44px;
-  background-color: turquoise;
-}
-.footer-link .item-list:not(:last-child) {
-  margin-right: 10px;
-}
 .main-footer {
   display: flex;
 }
@@ -253,9 +271,11 @@ address .link:not(:last-child) {
   margin-bottom: 9px;
 }
 /* social networks */
+
 .footer .social {
   flex-basis: 270px;
 }
+
 .social-text,
 .form-text {
   margin-top: 12px;
@@ -269,13 +289,46 @@ address .link:not(:last-child) {
 
   text-transform: uppercase;
 }
-.social .link {
-  text-decoration: none;
-  color: inherit;
+
+.footer-link {
+  display: flex;
 }
-.social .link:hover,
-.social .link:focus {
-  color: var(--accent-color);
+
+.social .link {
+  display: block;
+  width: 44px;
+  height: 44px;
+  background-color: var(--footer-link-bg-color);
+  border-radius: 50%;
+}
+
+.footer-link .item-list:not(:last-child) {
+  margin-right: 10px;
+}
+.social .item-list {
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 20px 20px;
+  border-radius: 50%;
+}
+
+.social .item-list:hover,
+.social .item-list:focus {
+  background-color: var(--accent-color);
+}
+
+.item-list.instagram {
+  background-image: url(../img/instagram2white.svg);
+}
+
+.item-list.twitter {
+  background-image: url(../img/twitter-1white.svg);
+}
+.item-list.facebook {
+  background-image: url(../img/facebook1white.svg);
+}
+.item-list.linkedin {
+  background-image: url(../img/linkedin-white.svg);
 }
 /* form */
 .footer .form {
@@ -290,6 +343,26 @@ address .link:not(:last-child) {
   text-align: center;
 }
 
+.hero.background {
+  padding-top: 200px;
+
+  max-width: 1600px;
+  height: 600px;
+
+  background-color: #000000;
+  background-image: linear-gradient(
+      rgba(47, 48, 58, 0.8),
+      rgba(47, 48, 58, 0.8)
+    ),
+    url(../img/Headerimg.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-attachment: scroll;
+  background-position: center;
+  margin-left: auto;
+  margin-right: auto;
+}
+
 .hero-title {
   color: var(--primary-white-color);
 
@@ -302,8 +375,6 @@ address .link:not(:last-child) {
 
   margin-top: 0;
   margin-bottom: 30px;
-
-  background-color: yellow;
 }
 
 /* sectoin */
@@ -340,7 +411,27 @@ address .link:not(:last-child) {
 .features-list .item + .item {
   margin-left: 30px;
 }
-
+.features-list .item::before {
+  content: "";
+  display: block;
+  height: 120px;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-color: var(--secondary-bg-color);
+  border-radius: 4px;
+}
+.icon-group::before {
+  background-image: url(../img/Group.svg);
+}
+.icon-clok1::before {
+  background-image: url(../img/clock1.svg);
+}
+.icon-diagram1::before {
+  background-image: url(../img/diagram1.svg);
+}
+.icon-astronaut1::before {
+  background-image: url(../img/astronaut1.svg);
+}
 .features-list .title {
   font-weight: 700;
   font-size: 14px;
